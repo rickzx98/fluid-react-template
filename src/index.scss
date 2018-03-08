@@ -1,0 +1,65 @@
+/* Variables */
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import './theme/bootstrap/bootstrap.css';
+@import '../node_modules/normalize.css/normalize.css';
+@import './styles/variables.scss';
+@import './styles/mixin.scss';
+@import './styles/paper.scss';
+@import './styles/nav-header.scss';
+@import './styles/body.scss';
+@import './styles/table.scss';
+@import './styles/bootstrap-classes.scss';
+@import '../node_modules/animate.css/animate.css';
+@import '../node_modules/font-awesome/css/font-awesome.css';
+@import '../components/index.scss';
+.margin-bottom-5px {
+    margin-bottom: 5px;
+}
+
+.no-pad-left {
+    padding-left: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.center {
+    margin: auto;
+}
+
+.padding-left-15px {
+    padding-left: 15px;
+}
+
+.width100pc {
+    width: 100% !important;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.loading-icon {
+    color: $loading-color;
+}
+
+.content-panel-height {
+    min-height: 464px;
+}
+
+.edit-indicator {
+    color: antiquewhite;
+    float: right;
+}
+
+.collapse-header {
+    .panel-heading {
+        &:hover {
+            background-color: $vin-blue;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.paper {
+    padding: 1.54cm;
+    margin: auto;
+    &.a4 {
+        &.portrait {
+            width: 21cm;
+            min-height: 29.7cm;
+        }
+    }
+    background: white;
+    font-family: Arial,
+    Helvetica,
+    sans-serif;
+}

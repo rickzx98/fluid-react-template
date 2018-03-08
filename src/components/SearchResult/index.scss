@@ -1,0 +1,26 @@
+.search-result {
+        thead {
+            tr {
+                font-size: 16px;
+                background: $awe-blue-left;
+                color: white;
+                font-weight: bold;
+            }
+        }
+        tbody {
+            tr {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                &.odd {
+                    background: white;
+                }
+            }
+        }
+        .page-body {
+            padding: 0 5px 0 5px;
+            @media (min-width: $screen-sm-min) {
+                padding: 0 15% 0 15%;
+            }
+        }
+}

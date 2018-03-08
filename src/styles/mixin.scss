@@ -1,0 +1,23 @@
+$scaleValue: 1;
+@mixin printScale() {
+    -moz-transform: scale($scaleValue);
+    -webkit-transform: scale($scaleValue);
+    transform: scale($scaleValue);
+}
+
+@mixin placeholderColor($color) {
+    & :-moz-placeholder,
+     ::-ms-input-placeholder,
+     ::-moz-placeholder,
+     ::-webkit-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin blur($pixel) {
+    -webkit-filter: blur($pixel);
+    -moz-filter: blur($pixel);
+    -o-filter: blur($pixel);
+    -ms-filter: blur($pixel);
+    filter: blur($pixel);
+}

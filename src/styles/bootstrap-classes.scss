@@ -1,0 +1,9 @@
+.form-group {
+    label {
+        font-weight: $form-group-label-font-weight;
+    }
+    .form-control {
+        color: $form-control-color;
+        font-weight: $form-control-font-weight;
+    }
+}

@@ -1,0 +1,28 @@
+.record-view {
+        .owner-view {
+            padding: 0 9px 0 9px;
+            margin-bottom:-15px;
+        }
+        .fluid-merge-view {
+            padding: 9px;
+        }
+        .merged-view-field {
+            margin: 6px;
+            border-bottom: 1px solid $border-color;
+            border-left: 1px solid $border-color;
+        }
+        .merged-view-label {
+            text-align: right;
+            font-weight: 600;
+            font-size: 13px;
+            margin: 5px;
+        }
+        .merged-view-value {
+            display: block;
+            margin: 5px;
+            text-indent: 15px;
+            font-weight: 500;
+            text-align: left;
+            min-width: 300px;
+        }
+}
