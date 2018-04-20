@@ -1,7 +1,7 @@
 {
-  "name": "record-keeper",
+  "name": "fluid-react-template",
   "version": "0.1.0",
-  "description": "Record Keeper",
+  "description": "Fluid React Template",
   "engines": {
     "npm": ">=3"
   },
@@ -29,20 +29,21 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
-  "author": "m27@topdanmark.dk",
+  "author": "Jerico de Guzman",
   "license": "MIT",
   "dependencies": {
     "animate.css": "3.6.1",
     "bootstrap": "3.3.7",
     "event-source-polyfill": "0.0.12",
-    "fluid-commons": "^0.4.7",
-    "fluid-func": "0.2.3",
+    "fluid-commons": "^0.8.7",
+    "fluid-func": "^0.4.0",
     "font-awesome": "4.7.0",
     "moment": "^2.20.1",
     "normalize.css": "8.0.0",
     "object-assign": "4.1.0",
     "promise-polyfill": "7.1.0",
     "react": "16.2.0",
+    "react-barcode": "^1.3.2",
     "react-bootstrap": "^0.31.1",
     "react-bootstrap-typeahead": "2.3.1",
     "react-bs-notifier": "4.4.6",
@@ -51,9 +52,11 @@
     "react-fontawesome": "1.6.1",
     "react-redux": "5.0.5",
     "react-router-dom": "4.2.2",
-    "react-router-redux": "^5.0.0-alpha.7",
+    "react-router-redux": "5.0.0-alpha.7",
+    "react-treebeard": "^2.1.0",
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",
+    "url-pattern": "^1.0.3",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

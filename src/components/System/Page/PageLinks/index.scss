@@ -1,0 +1,43 @@
+.page-list-with-links {
+  .page-links {
+    margin-bottom: 5px;
+    padding-top: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+    .page-links-content {
+      padding: 0;
+      background: $module-page-form-background;
+      .page-links-heading {
+        background: $table-header-bg-color;
+        color: $hd-text-color;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .page-link {
+        border-top: none;
+        border-left: 1px solid $border-color !important;
+        border-right: 1px solid $border-color !important;
+        border-bottom: 1px solid $border-color !important;
+        padding: 8px;
+        font-weight: 400;
+        font-size: 16px;
+        color: $hd-text-color;
+        background: $module-grid-background;
+        &:hover {
+          cursor: pointer;
+          background: $awe-blueH;
+          color: $hd-text-color;
+        }
+        &.grouped {
+          background: darken($module-grid-background, 50);
+          &:hover {
+            cursor: pointer;
+            background: $awe-blueH;
+            color: $hd-text-color;
+          }
+        }
+      }
+    }
+  }
+}

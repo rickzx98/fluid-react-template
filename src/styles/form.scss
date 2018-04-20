@@ -1,0 +1,22 @@
+form {
+    label {
+        &.control-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: $hd-text-color;
+        }
+    }
+    input {
+        font-weight: 400;
+        font-size: 12px;
+    }
+}
+
+.has-error {
+    .control-label {
+        color: $vin-red;
+    }
+    .form-control {
+        border-color: $vin-red;
+    }
+}

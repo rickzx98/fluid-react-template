@@ -1,21 +1,18 @@
-import { AjaxStatusReducer as ajaxStatus } from '../components/AjaxStatus/';
+import { AjaxStatusReducer as ajaxStatus } from '../components/System/AjaxStatus/';
 import { combineReducers } from 'redux';
-import { DialogReducer as dialog } from '../components/Dialog/';
+import { DialogReducer as dialog } from '../components/System/Dialog/';
 import { FluidFormReducer as fluidForm } from 'fluid-commons';
-import { HeaderReducer as headers } from '../components/Headers/';
-import { LabelsReducer as labels } from '../components/Labels/';
-import { NotificationReducer as notifications } from '../components/Notification/';
-import { RecordViewReducer as record } from '../components/RecordView/';
+import { HeaderReducer as headers } from '../components/System/Headers/';
+import { LabelsReducer as labels } from '../components/System/Labels/';
+import { NotificationReducer as notifications } from '../components/System/Notification/';
+import { CrudPageReducer as pageListData } from '../components/System/Page/';
 import { routerReducer } from 'react-router-redux';
-import { SearchReducer as search } from '../components/Search/';
-import { SearchResultReducer as searchResult } from '../components/SearchResult/';
-import { SecurityReducer as security } from '../components/Security/';
-
+import { SecurityReducer as security } from '../components/System/Security/';
 const rootReducer = combineReducers({
   routing: routerReducer,
   headers, security,
   notifications, ajaxStatus,
-  fluidForm, dialog, labels, search,
-  searchResult, record
+  fluidForm, dialog, labels,
+  pageListData
 });
 export default rootReducer;

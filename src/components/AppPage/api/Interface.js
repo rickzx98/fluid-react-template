@@ -1,5 +1,5 @@
-import { RecordHomeApi } from '../../RecordHome/';
-import { RecordViewApi } from '../../RecordView/';
-import { SearchResultApi } from '../../SearchResult/';
+import { PageAPI } from '../imports';
 
-export default { ...RecordHomeApi, ...SearchResultApi, ...RecordViewApi };
+export default {
+  ...PageAPI
+};

@@ -1,19 +1,20 @@
 import React, { PureComponent } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import { AdminUserPage } from '../Admin/AdminUser/';
+import { HomePage } from '../System/Home/';
 import { Pages } from '../../types/';
 import PropTypes from 'prop-types';
-import { RecordHomePage } from '../RecordHome/';
-import { RecordViewPage } from '../RecordView/';
 
 export default class RouteBlocker extends PureComponent {
   render() {
     return (<Switch>
-      <Route exact path={Pages.recordHomePage} component={RecordHomePage} />
-      <Route exact path={Pages.recordViewPage + ':itemType/:itemID'} component={RecordViewPage} />
+      <Route exact path={Pages.home} component={HomePage}/>
+      <Route exact path={Pages.user} component={AdminUserPage}/>
     </Switch>);
   }
 }
+
 
 RouteBlocker.propTypes = {
   routing: PropTypes.object.isRequired

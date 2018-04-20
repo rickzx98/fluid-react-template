@@ -1,6 +1,8 @@
 const SERVER_HOST = '/';
 const SERVER_APP_PATH = 'record';
 const SERVER_RECORD_PATH = 'services';
+
+import storage from './Storage';
 export default {
   environment: {
     development: () => {
@@ -16,7 +18,8 @@ export default {
   },
   catch: {
     apiError: (error) => {
-      console.error(error); // eslint-disable-line 
+      console.error(error); // eslint-disable-line
     }
-  }
+  },
+  storage
 };

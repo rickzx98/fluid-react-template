@@ -9,6 +9,7 @@ import webpack from 'webpack';
 
 
 const GLOBALS = {
+  'process.env.APP_KEY': JSON.stringify('9de98220171-4ab8-a18d-435da60616d9'),
   'process.env.NODE_ENV': JSON.stringify('production'),
   __DEV__: false
 };

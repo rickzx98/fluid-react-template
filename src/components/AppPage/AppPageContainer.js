@@ -1,21 +1,12 @@
-import Config from './api/Config';
-import { DialogPage } from '../Dialog/';
-import { FluidApi } from 'fluid-commons';
-import { Header } from '../Headers/';
-import Interface from './api/Interface';
-import { NotificationPage } from '../Notification/';
-import PropTypes from 'prop-types';
-import React from 'react';
-import RouteBlocker from './RouteBlocker';
-import { Search } from '../Search/';
-import { connect } from 'react-redux';
+import { DialogPage, FluidApi, Header, NotificationPage, PropTypes, React, connect } from './imports';
 
-// This is a class-based component because the current
-// version of hot reloading won't hot reload a stateless
-// component at the top-level.
+import Config from './api/Config';
+import Interface from './api/Interface';
+import { NavComponents } from './NavComponents';
+import RouteBlocker from './RouteBlocker';
+
 const environment = process.env.NODE_ENV || 'development';
 class App extends React.Component {
-
   render() {
     const { isAuthenticated } = this.props.security;
     return (
@@ -23,7 +14,7 @@ class App extends React.Component {
         config={Config}
         api={Interface}
         environment={environment}>
-        {isAuthenticated && <Header {...this.props} navComponents={<Search/>} />}
+        {isAuthenticated && <Header {...this.props} navComponents={NavComponents} />}
         <NotificationPage />
         <DialogPage />
         {isAuthenticated && <RouteBlocker routing={this.props.routing} />}

@@ -10,8 +10,9 @@ FieldView.propTypes = {
         PropTypes.element,
         PropTypes.array,
         PropTypes.string,
-        PropTypes.object
-    ]).isRequired
+        PropTypes.object,
+        PropTypes.number
+    ])
 };
 
 

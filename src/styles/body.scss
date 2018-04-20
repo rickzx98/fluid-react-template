@@ -1,5 +1,11 @@
 body {
-    background-color: $background-color;
+    // background-image: url("/bg-pattern.png");
+    // background-repeat: repeat-y repeat-x;
+    background: linear-gradient(rgba(97, 89, 89, 0.4), rgba(97, 89, 89, 0.4)), url("/body-bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font: $font-main;
     line-height: 1.4em;
     color: #4d4d4d; //min-width: 70%;

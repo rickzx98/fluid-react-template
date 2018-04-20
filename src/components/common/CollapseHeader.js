@@ -18,7 +18,7 @@ export class CollapseHeader extends React.Component {
 
   render() {
     const panelStyle = 'collapse-header panel ' + (!this.state.collapsed && this.props.panelStyle || 'panel-default');
-    return (<div className={panelStyle}>
+    return (<div className={`${panelStyle} ${this.props.className || ''}`}>
       <div className="panel-heading" onClick={this.collapse}>
         <div className="panel-title">{this.props.heading}</div>
       </div>
@@ -38,5 +38,6 @@ CollapseHeader.propTypes = {
     PropTypes.object,
     PropTypes.element
   ]),
-  panelStyle: PropTypes.string
+  panelStyle: PropTypes.string,
+  className: PropTypes.string
 };

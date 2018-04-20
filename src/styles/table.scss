@@ -1,10 +1,43 @@
 .table {
+    border: 1px solid $border-color;
+    tbody {
+        background: none;
+    }
+    thead {
+        th {
+            background: $table-header-bg-color;
+            color: $table-header-font-color;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px !important;
+        }
+    }
+    .fluid-table-filter-row {
+        display: none;
+        background: none;
+    }
+    .fluid-row {
+        background: $table-background-color;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+    }
+    .fluid-table-empty-row {
+        color: $hd-text-color;
+        font-weight: 500;
+        &:hover {
+            cursor: pointer !important;
+            background-color: $table-hover-background;
+            color: $hd-text-color;
+        }
+    }
     &.table-hover {
         tbody {
-            tr {
+            tr.fluid-row {
                 &:hover {
                     cursor: pointer !important;
                     background-color: $table-hover-background;
+                    color: $hd-text-color;
                 }
             }
         }

@@ -4,23 +4,45 @@ $awe-blue-left: rgba(46, 87, 99, .9);
 $awe-blueH: rgba(53, 70, 94, 0.4);
 $notes-item-bg: #f5f5f5;
 $vin-green: #60b044;
-$vin-red: #ff0000;
+$vin-red: #e26e6e;
 $hd-text-color: #ececed;
 $fd-bg-color: #3f5c73;
 $page-header-height: 160px;
 $app-title-color: #e2e2e2;
-$loading-color: #f16464;
+$loading-color: #ececed;
 $border-color: #cccccc;
 $screen-lg-min: 1200px;
 $screen-md-min: 992px;
 $screen-sm-min: 768px;
 $background-color: #1a5286 !important;
-$font-main: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
+$font-main: 14px 'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
 /*table*/
-$table-hover-background: wheat !important;
 
+$table-hover-background: $awe-blueH !important;
+$table-background-color: rgba(245, 245, 245, 1);
+$table-header-bg-color: #8f8f8f;
+$table-header-font-color: $hd-text-color;
 /*bootstrap-classes*/
+
 $form-control-color: black;
 $form-control-font-weight: 500;
 $form-group-label-font-weight: 600;
+/*Nav header*/
+
+$nav-header-background: rgba(172, 172, 172, 0.6);
+$nav-header-control-background:rgba(172, 172, 172, 0.9);
+/*Page*/
+
+$page-header-fader-background-color: rgba(201, 113, 30, 0.74);
+/* Field view */
+
+$field-view-bg-color:#f5f5f5;
+$border-menu-radius: 5px;
+$border-field-radius: 10px;
+/*module grid*/
+
+$module-grid-background: rgba(172, 172, 172, 0.2);
+$module-page-form-background: rgba(97, 89, 89, 0.6);

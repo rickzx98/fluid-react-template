@@ -1,0 +1,31 @@
+.page-sub-modules {
+    .page-modules {
+        margin-bottom: 5px;
+        padding-top: 0;
+        padding-left: 2px;
+        padding-right: 2px;
+        .page-modules-content {
+            padding: 0;
+            background: $module-page-form-background;
+            border: 1px solid $border-color;
+            .page-modules-heading {
+                background: $table-header-bg-color;
+                color: $table-header-font-color;
+                font-weight: 500;
+                font-size: 16px;
+                padding: 10px;
+            }
+            .module-grid {
+                padding: 8px;
+                font-weight: 400;
+                font-size: 16px;
+                background: $module-grid-background;
+                &:hover {
+                    cursor: pointer;
+                    background: $awe-blueH;
+                    color: $hd-text-color;
+                }
+            }
+        }
+    }
+}
