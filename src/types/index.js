@@ -38,5 +38,6 @@ export const FIELD_OWNER = 'owner';
 export const FIELD_RECORD_TYPE = 'recordType';
 export const FIELD_BLOCK_NO = 'blockNo';
 export const FIELD_STATUS = 'status';
-export const FIELD_DATE_CREATED = 'dataCreated';
+export const FIELD_DATE_CREATED = 'dateCreated';
 export const FIELD_ITEM_ID = 'itemID';
+export const FIELD_ITEM_TYPE = 'itemType';

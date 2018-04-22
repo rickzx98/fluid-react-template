@@ -4,5 +4,6 @@ export const Claim = {
     MILEAGE: 'mileage',
     CLAIM_STATUS: 'claimStatus',
     COVERAGE_STATUS: 'coverageStatus',
-    REPORTED_DATE: 'reportedDate'
+    REPORTED_DATE: 'reportedDate',
+    POLICY_NO: 'policyNo'
 };

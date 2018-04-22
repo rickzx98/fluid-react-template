@@ -83,6 +83,7 @@ export const LABEL_DATE_PURCHASED = 'Date purchased';
 // Registration
 export const LABEL_PLATE_NO = 'Plate number';
 export const LABEL_BRANCH = 'Branch';
+export const LABEL_REGISTERED_DATE = 'Registered date';
 
 //Company
 export const LABEL_COMPANY = 'Company';

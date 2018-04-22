@@ -30,7 +30,7 @@ export default () => {
         data: {
             default: '01/26/17'
         }
-    }, 
+    },
     {
         field: FIELD_COMPANY,
         label: getLabel('LABEL_COMPANY'),
@@ -49,6 +49,12 @@ export default () => {
         label: getLabel('LABEL_BRANCH'),
         data: {
             default: 'Metro Manila'
+        }
+    }, {
+        field: Registration.REGISTERED_DATE,
+        label: getLabel('LABEL_REGISTERED_DATE'),
+        data: {
+            default: 'January 26, 2017'
         }
     }, {
         field: Registration.PLATE,

@@ -75,6 +75,14 @@ export default () => {
         }
     },
     {
+        field: Claim.POLICY_NO,
+        label: getLabel('LABEL_POLICY_NO'),
+        isDisabled: () => true,
+        data: {
+            default: '55543708'
+        }
+    },
+    {
         field: Claim.CLAIM_NO,
         label: getLabel('LABEL_CLAIM_NO'),
         data: {
