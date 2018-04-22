@@ -30,12 +30,12 @@ export default () => {
         data: {
             default: '10/01/17'
         }
-    }, 
+    },
     {
         field: FIELD_COMPANY,
         label: getLabel('LABEL_COMPANY'),
         data: {
-            default: 'Toyota'
+            default: 'Cindy\'s Repairshop'
         }
     },
     {
