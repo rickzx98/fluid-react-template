@@ -1,0 +1,1 @@
+export { PolicyNewPage } from './PolicyNewPage';

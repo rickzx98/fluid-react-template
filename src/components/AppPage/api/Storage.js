@@ -2,8 +2,9 @@
 export default {
   development: () => {
     return {
-		user:[],
-		app:[]
+      user: [],
+      app: [],
+      dealer: []
     };
   }
 };
