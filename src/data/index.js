@@ -8,4 +8,4 @@ export const getData = () => {
         default:
             return {};
     }
-}
+};

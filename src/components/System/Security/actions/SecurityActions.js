@@ -1,6 +1,6 @@
 import * as types from './';
 
-import { MPUser, NotificationActions as notificationActions } from '../imports';
+import { User, NotificationActions as notificationActions } from '../imports';
 
 import { getApi as Api } from '../api/';
 
@@ -10,10 +10,10 @@ export function notAuthorizedAccess(path) {
   };
 }
 
-export function setAuthenticatedUserInfo(userId, username, departmentId) {
+export function setAuthenticatedUserInfo(userId, username) {
   return {
     type: types.SET_AUTHENTICATED_USER,
-    payload: { userId, username, departmentId }
+    payload: { userId, username }
   };
 }
 
@@ -22,7 +22,7 @@ export function loadCurrentUser() {
     const api = Api();
     api.getCurrentUser()
       .then(user => {
-        dispatch(setAuthenticatedUserInfo(user[MPUser.USER_ID], user[MPUser.USERNAME], user[MPUser.DEPARTMENT_ID]));
+        dispatch(setAuthenticatedUserInfo(user[User.ID], user[User.USERNAME]));
       })
       .catch((error) => {
         console.error(error); // eslint-disable-line 
