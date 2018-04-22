@@ -1,4 +1,4 @@
-import { Claim, DataTypes, Dealer, Maintenance, Policy, PolicyNew, Registration, Repairshop, fluidFunc } from './imports';
+import { Claim, DataTypes, Dealer, Maintenance, Policy, Registration, Repairshop, fluidFunc } from './imports';
 
 const createVehicle = (input) => {
     const vehicleData = {};
@@ -156,7 +156,6 @@ fluidFunc.create('policynew')
                 dataToSave.description[Policy.PRODUCT] = input(Policy.PRODUCT);
                 dataToSave.description[Policy.COVERAGES] = input(Policy.COVERAGES);
                 dataToSave.description[Policy.INFORCE_DATE] = input(Policy.INFORCE_DATE);
-                dataToSave.description[PolicyNew.FILE_NOTES] = input(PolicyNew.FILE_NOTES);
                 return fetch(CREATE_RECORD(), {
                     headers: HEADERS(),
                     method: 'POST',

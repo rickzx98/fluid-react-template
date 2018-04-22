@@ -107,11 +107,5 @@ export default () => {
         data: {
             default: 'February 14, 2018'
         }
-    }, {
-        label: getLabel('LABEL_FILE_NOTES'),
-        field: Policy.FILE_NOTES,
-        data: {
-            default: 'New owner,pre owned vehicle'
-        }
     }];
 };
