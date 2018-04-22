@@ -28,7 +28,7 @@ export default () => {
         field: FIELD_COMPANY,
         label: getLabel('LABEL_COMPANY'),
         data: {
-            default: 'Toyota'
+            default: 'Safekeep Insurance'
         }
     },
     {
