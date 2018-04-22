@@ -7,3 +7,7 @@ export const User = {
   FULL_NAME: 'fullName',
   USER_GROUP: 'userGroup'
 };
+export const Pages = {
+  home: '/',
+  user: '/user'
+};

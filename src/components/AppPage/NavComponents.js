@@ -1,4 +1,1 @@
-import React from 'react';
-
-export const NavComponents =
-  [];
+export const NavComponents = [];
