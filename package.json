@@ -1,6 +1,6 @@
 {
   "name": "fluid-react-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Fluid React Template",
   "engines": {
     "npm": ">=3"
@@ -36,7 +36,7 @@
     "bootstrap": "3.3.7",
     "event-source-polyfill": "0.0.12",
     "fluid-commons": "^0.8.7",
-    "fluid-func": "^0.4.0",
+    "fluid-func": "^0.5.2",
     "font-awesome": "4.7.0",
     "moment": "^2.20.1",
     "normalize.css": "8.0.0",

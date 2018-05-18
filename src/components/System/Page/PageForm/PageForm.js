@@ -1,5 +1,4 @@
 import {
-  FieldView,
   FluidForm,
   FormGroup,
   HiddenButton,
@@ -9,6 +8,7 @@ import {
 } from '../imports';
 
 import { FormInput } from './FormInput';
+import { FormView } from './FormView';
 
 export const PageForm = ({ formName, formValue,
   formSpecs, readOnly,
@@ -16,7 +16,8 @@ export const PageForm = ({ formName, formValue,
   viewValueTransformer,
   modelValueTransformer,
   fieldClass = () => '',
-  fieldComponent }) => {
+  fieldComponent,
+  viewComponent }) => {
   return (<FluidForm name={formName} specs={formSpecs}
     onSubmit={(formValue) => _modelValueTransformer(formValue, modelValueTransformer, onSubmit)} onFailed={onFailed}
     fieldNode={(field, index) => {
@@ -26,8 +27,13 @@ export const PageForm = ({ formName, formValue,
         key={field.name} label={field.label}
         name={field.name}
         className={fieldClass(field.name, index)}>
-        {readOnlyWrapper(<FieldView>{FluidForm.getValue(formValue, field.name, viewValueTransformer ? viewValueTransformer(field.name) : false)}</FieldView>,
+        {readOnlyWrapper(<FormView
+          field={field}
+          formValue={formValue}
+          viewValueTransformer={viewValueTransformer}
+          viewComponent={viewComponent} />,
           (<FormInput
+            formName={formName}
             FieldComponent={fieldComponent}
             field={field}
             formValue={formValue} />), readOnly)}
@@ -54,5 +60,6 @@ PageForm.propTypes = {
   fieldClass: PropTypes.func,
   fieldComponent: PropTypes.func,
   viewValueTransformer: PropTypes.func,
-  modelValueTransformer: PropTypes.func
+  modelValueTransformer: PropTypes.func,
+  viewComponent: PropTypes.func
 };

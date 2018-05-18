@@ -1,4 +1,4 @@
-import * as types from './types';
+import * as types from "./types";
 
 import {
   AjaxStatusActions,
@@ -9,31 +9,37 @@ import {
   NotificationActions,
   UrlPattern,
   getLabel,
-  getRequireMessage,
   goBack,
   push
-} from '../imports';
+} from "../imports";
 
-export const onFailed = (stack, formName) => {
+export const onFailed = stack => {
   return dispatch => {
-    const { message, field } = getRequireMessage(stack.error.message);
-    FluidForm.invalid(formName, field, message);
-    dispatch(NotificationActions.alertDanger(message));
+    if (stack.error) {
+      stack.error.forEach(field => {
+        dispatch(NotificationActions.alertDanger(field.error.message));
+      });
+    }
   };
 };
 export const back = () => dispatch => {
   dispatch(goBack());
 };
-export const prevPage = (currentForm) => {
+export const prevPage = currentForm => {
   return (dispatch, state) => {
     const { fluidForm } = state();
     const form = fluidForm[currentForm];
     if (form.touched) {
-      dispatch(DialogActions.openCancelConfirmation(() => {
-        dispatch(goBack());
-      }, () => {
-        dispatch(DialogActions.closeDialog());
-      }));
+      dispatch(
+        DialogActions.openCancelConfirmation(
+          () => {
+            dispatch(goBack());
+          },
+          () => {
+            dispatch(DialogActions.closeDialog());
+          }
+        )
+      );
     } else {
       dispatch(goBack());
     }
@@ -48,18 +54,24 @@ export const view = (pageName, id) => dispatch => {
 };
 export const load = (pageName, parent, transformer) => dispatch => {
   dispatch(AjaxStatusActions.beginAjaxCall());
-  FluidApi.execute('getListData', { pageName })
+  FluidApi.execute("getListData", { pageName })
     .then(({ getListData }) => {
-      const data = getListData('data')()[pageName];
+      const data = getListData("data")()[pageName];
       if (transformer) {
         if (transformer instanceof Promise) {
-          transformer.then(transformedData => {
-            dispatch(setListData(pageName, transformedData));
-            dispatch(AjaxStatusActions.ajaxCallSuccess());
-          }).catch(error => {
-            dispatch(AjaxStatusActions.ajaxCallError(error));
-            dispatch(NotificationActions.alertDanger(getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)));
-          });
+          transformer
+            .then(transformedData => {
+              dispatch(setListData(pageName, transformedData));
+              dispatch(AjaxStatusActions.ajaxCallSuccess());
+            })
+            .catch(error => {
+              dispatch(AjaxStatusActions.ajaxCallError(error));
+              dispatch(
+                NotificationActions.alertDanger(
+                  getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)
+                )
+              );
+            });
         } else {
           dispatch(setListData(pageName, transformer(data)));
           dispatch(AjaxStatusActions.ajaxCallSuccess());
@@ -68,79 +80,113 @@ export const load = (pageName, parent, transformer) => dispatch => {
         dispatch(setListData(pageName, data));
         dispatch(AjaxStatusActions.ajaxCallSuccess());
       }
-
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
-      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_LOADING_${pageName}_LIST_FAILED`)
+        )
+      );
     });
 };
 
 export const create = (pageName, input) => dispatch => {
   dispatch(AjaxStatusActions.beginAjaxCall());
-  FluidApi.execute('createData', { input, pageName })
+  FluidApi.execute("createData", { input, pageName })
     .then(({ createData }) => {
-      const data = createData('data')();
+      const data = createData("data")();
       dispatch(addData(data));
-      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_CREATE_${pageName}_SUCCESS`)));
+      dispatch(
+        NotificationActions.alertSuccess(
+          getLabel(`LABEL_CREATE_${pageName}_SUCCESS`)
+        )
+      );
       dispatch(AjaxStatusActions.ajaxCallSuccess());
       dispatch(prevPage(pageName));
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
-      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_CREATE_${pageName}`)));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_FAILED_TO_CREATE_${pageName}`)
+        )
+      );
     });
 };
 export const update = (pageName, id, input) => dispatch => {
   const { _id, primaryField } = idSplitter(id);
   dispatch(AjaxStatusActions.beginAjaxCall());
-  FluidApi.execute('updateData', { input, pageName, id: _id, primaryField })
+  FluidApi.execute("updateData", { input, pageName, id: _id, primaryField })
     .then(() => {
-      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_UPDATE_${pageName}_SUCCESS`)));
+      dispatch(
+        NotificationActions.alertSuccess(
+          getLabel(`LABEL_UPDATE_${pageName}_SUCCESS`)
+        )
+      );
       dispatch(AjaxStatusActions.ajaxCallSuccess());
-      dispatch(prevPage(pageName));
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
-      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_UPDATE_${pageName}`)));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_FAILED_TO_UPDATE_${pageName}`)
+        )
+      );
     });
 };
 export const loadById = (pageName, id) => dispatch => {
   const { _id, primaryField } = idSplitter(id);
   dispatch(AjaxStatusActions.beginAjaxCall());
-  FluidApi.execute('getDataById', { pageName, id: _id, primaryField })
+  FluidApi.execute("getDataById", { pageName, id: _id, primaryField })
     .then(({ getDataById }) => {
-      const data = getDataById('data')();
+      const data = getDataById("data")();
       FluidForm.load(pageName, data);
       dispatch(AjaxStatusActions.ajaxCallSuccess());
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
-      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_LOADING_${pageName}_FAILED`)));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_LOADING_${pageName}_FAILED`)
+        )
+      );
     });
 };
 
 export const removeData = (pageName, id) => dispatch => {
   const { _id, primaryField } = idSplitter(id);
   dispatch(AjaxStatusActions.beginAjaxCall());
-  FluidApi.execute('deleteData', { pageName, id: _id, primaryField })
+  FluidApi.execute("deleteData", { pageName, id: _id, primaryField })
     .then(() => {
-      dispatch(NotificationActions.alertSuccess(getLabel(`LABEL_DELETE_${pageName}_SUCCESS`)));
+      dispatch(
+        NotificationActions.alertSuccess(
+          getLabel(`LABEL_DELETE_${pageName}_SUCCESS`)
+        )
+      );
       dispatch(AjaxStatusActions.ajaxCallSuccess());
       dispatch(prevPage(pageName));
     })
     .catch(error => {
       dispatch(AjaxStatusActions.ajaxCallError(error));
-      dispatch(NotificationActions.alertDanger(getLabel(`LABEL_FAILED_TO_DELETE_${pageName}`)));
+      dispatch(
+        NotificationActions.alertDanger(
+          getLabel(`LABEL_FAILED_TO_DELETE_${pageName}`)
+        )
+      );
     });
 };
 export function goTo(routes, data, parent) {
   const urlPattern = new UrlPattern(routes.view);
   return dispatch => {
-    dispatch(push(urlPattern.stringify({
-      id: `${data.getPrimaryField()}_f${data.getPrimaryKey()}`,
-      parent: parent || ''
-    })));
+    dispatch(
+      push(
+        urlPattern.stringify({
+          id: `${data.getPrimaryField()}_f${data.getPrimaryKey()}`,
+          parent: parent || ""
+        })
+      )
+    );
   };
 }
 export const setListData = (pageName, listData) => ({
@@ -160,28 +206,35 @@ export function createHeaders(controls) {
   };
 }
 
-
 export function goToNew(routes, parent) {
   const urlPattern = new UrlPattern(routes.create);
   return dispatch => {
-    dispatch(push(urlPattern.stringify({
-      parent: parent || ''
-    })));
+    dispatch(
+      push(
+        urlPattern.stringify({
+          parent: parent || ""
+        })
+      )
+    );
   };
 }
-
 
 export const cancelChanges = (pageName, id, cancel) => {
   return (dispatch, state) => {
     const { fluidForm } = state();
     const form = fluidForm[pageName];
     if (form.touched) {
-      dispatch(DialogActions.openCancelConfirmation(() => {
-        dispatch(cancelConfirm(pageName, id));
-        cancel();
-      }, () => {
-        dispatch(DialogActions.closeDialog());
-      }));
+      dispatch(
+        DialogActions.openCancelConfirmation(
+          () => {
+            dispatch(cancelConfirm(pageName, id));
+            cancel();
+          },
+          () => {
+            dispatch(DialogActions.closeDialog());
+          }
+        )
+      );
     } else {
       cancel();
     }
@@ -197,10 +250,16 @@ export const cancelConfirm = (pageName, id) => {
 
 export const deleteData = (pageName, id) => {
   return dispatch => {
-    dispatch(DialogActions.openDeleteConfirmation(() => {
-      dispatch(removeData(pageName, id));
-      dispatch(DialogActions.closeDialog());
-    }, undefined, getLabel('LABEL_THIS_RECORD')));
+    dispatch(
+      DialogActions.openDeleteConfirmation(
+        () => {
+          dispatch(removeData(pageName, id));
+          dispatch(DialogActions.closeDialog());
+        },
+        undefined,
+        getLabel("LABEL_THIS_RECORD")
+      )
+    );
   };
 };
 
@@ -209,15 +268,20 @@ export const goToPage = (id, module) => dispatch => {
   dispatch(push(pattern.stringify({ parent: id })));
 };
 
-export const goToUrl = (url) => dispatch => {
+export const goToUrl = url => dispatch => {
   dispatch(push(url));
 };
 
 function idSplitter(id) {
-  const splitted = id.split('_f');
+  const splitted = id.split("_f");
   const primaryField = splitted[0];
   const _id = splitted[1];
   return {
-    _id, primaryField
+    _id,
+    primaryField
   };
 }
+
+export const alertDanger = message => dispatch => {
+  dispatch(NotificationActions.alertDanger(message));
+};

@@ -7,7 +7,7 @@ export const FormGroup = ({ label, required, name, children, message, invalid, c
     <div className={!invalid ? inputClass : inputClass + ' has-error'}>
       <label className="control-label" htmlFor={name + '_form'}>
         {required && <span className="text-warning">*</span>} {label}</label>
-      <div id={name + '_form'} className="col-sm-12">{children}</div>
+      <div id={name + '_form'} className="col-sm-12 no-padding">{children}</div>
       {invalid && message && <div className="col-sm-12 text-warning"><p>{message}</p></div>}
     </div >);
 };

@@ -1,4 +1,13 @@
 form {
+    button {
+        outline: none;
+        font-size: 12;
+        font-weight: 550;
+        height: 35px !important;
+        i {
+            text-align: center;
+        }
+    }
     label {
         &.control-label {
             font-weight: 600;
@@ -6,9 +15,10 @@ form {
             color: $hd-text-color;
         }
     }
-    input {
+    input, select {
         font-weight: 400;
         font-size: 12px;
+        height: 35px !important;
     }
 }
 

@@ -1,4 +1,4 @@
-.page-list-with-links {
+.with-links {
   .page-links {
     margin-bottom: 5px;
     padding-top: 0;
@@ -24,14 +24,14 @@
         font-size: 16px;
         color: $hd-text-color;
         background: $module-grid-background;
-        &:hover {
+        &:hover, &.active {
           cursor: pointer;
           background: $awe-blueH;
           color: $hd-text-color;
         }
         &.grouped {
           background: darken($module-grid-background, 50);
-          &:hover {
+          &:hover, &.active {
             cursor: pointer;
             background: $awe-blueH;
             color: $hd-text-color;

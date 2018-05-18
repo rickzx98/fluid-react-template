@@ -21,7 +21,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'getDataById', ...paramCopy })
+      FluidFunc.start(param.pageName(), { action: 'getDataById', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })

@@ -26,7 +26,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'deleteData', ...paramCopy })
+      FluidFunc.start(param.pageName(), { action: 'deleteData', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })

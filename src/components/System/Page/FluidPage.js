@@ -31,6 +31,10 @@ export class FluidPage extends React.Component {
         }
       }
     }
+    if (!this.componentWillUnmount) {
+      this.componentWillUnmount = this._componentWillUnmount.bind(this);
+    }
+
     if (props.pages) {
       for (let field in props.pages) {
         if (props.pages.hasOwnProperty(field)) {
@@ -39,12 +43,16 @@ export class FluidPage extends React.Component {
             const { location: { pathname } } = this.props.routing;
             const { params } = this.props.match;
             if (pattern.match(pathname)) {
-              return callback(params);
+              return callback({ ...params, page: field });
             }
           }).bind(this);
         }
       }
     }
+  }
+
+  _componentWillUnmount() {
+    this.setState({});
   }
 }
 

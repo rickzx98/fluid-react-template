@@ -36,7 +36,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'updateData', ...paramCopy })
+      FluidFunc.start(param.pageName(), { action: 'updateData', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })

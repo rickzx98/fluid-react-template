@@ -1,0 +1,19 @@
+p.form-text-area {
+  white-space: pre-line;
+}
+
+
+.form-date {
+  width: 100%;
+  background: white;
+  input[name="day"], input[name="month"], input[name="year"] {
+    padding-left: 5px;
+    min-width: 20px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+  }
+  .react-date-picker__button {
+    width: 100%;
+  }
+}
+

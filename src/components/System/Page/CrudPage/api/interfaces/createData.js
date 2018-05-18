@@ -23,7 +23,7 @@ export default {
           }
         }
       }
-      FluidFunc.start(param.pageName, { action: 'createData', ...paramCopy })
+      FluidFunc.start(param.pageName(), { action: 'createData', ...paramCopy })
         .then(({ data }) => {
           resolve({ data });
         })

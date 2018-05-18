@@ -4,7 +4,7 @@ import { PageLinks } from '../PageLinks/PageLinks';
 
 export class PageListWithLinks extends React.Component {
   render() {
-    return (<div className="page-list-with-links">
+    return (<div className="with-links">
       {this.props.links && this.props.links.length > 0 && (<PageLinks goToUrl={this.props.goToUrl}
         props={this.props.props} state={this.props.state} links={this.props.links} />)}
       <div className={`page-table ${this.props.links && this.props.links.length > 0 ? 'col-md-9' : ''}`}>
