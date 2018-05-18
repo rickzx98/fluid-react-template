@@ -1,2 +1,2 @@
-export { MPUser } from '../../../types/';
+export { User } from '../../../types/';
 export { NotificationActions } from '../Notification/';

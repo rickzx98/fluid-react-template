@@ -70,3 +70,49 @@ export const LABEL_PASSWORD_DID_NOT_MATCH = 'Password did not match';
 // User group
 export const LABEL_ADMIN = 'Admin';
 export const LABEL_PATRON = 'Patron';
+
+// Dealer
+export const LABEL_BRAND = 'Brand';
+export const LABEL_ENGINE = 'Engine';
+export const LABEL_MODEL = 'Model';
+export const LABEL_YEAR = 'Year';
+export const LABEL_DEALER = 'Dealer';
+export const LABEL_TOYOTA = 'Toyota';
+export const LABEL_DATE_PURCHASED = 'Date purchased';
+
+// Registration
+export const LABEL_PLATE_NO = 'Plate number';
+export const LABEL_BRANCH = 'Branch';
+export const LABEL_REGISTERED_DATE = 'Registered date';
+
+//Company
+export const LABEL_COMPANY = 'Company';
+export const LABEL_OWNER = 'Owner';
+
+export const LABEL_REG_COMP = 'Department of Motor Vehicle';
+
+/// Policy
+export const LABEL_POLICY = 'Policy';
+export const LABEL_POLICY_NO = 'Policy number';
+export const LABEL_PRODUCT  =  'Product';
+export const LABEL_COVERAGES  = 'Coverages';
+export const LABEL_INFORCE_DATE = 'Inforce date';
+export const LABEL_FILE_NOTES = 'File notes';
+// Maintenance
+export const LABEL_TRANSACTION = 'Transaction';
+export const LABEL_MILEAGE = 'Mileage';
+export const LABEL_MAINTENANCE = 'Maintenance';
+
+// Repairshop
+export const LABEL_DAMAGES = 'Damages';
+export const LABEL_REPORT = 'Report';
+export const LABEL_REPAIR_COST = 'Repair cost';
+export const LABEL_REPAIRSHOP = 'Repairshop';
+
+// Claim
+export const LABEL_CLAIM = 'Claim';
+export const LABEL_CLAIM_NO = 'Claim number';
+export const LABEL_COVERAGE_STATUS = 'Coverage status';
+export const LABEL_CLAIM_STATUS = 'Claim status';
+export const LABEL_REPORTED_DATE = 'Reported date';
+export const LABEL_COVERAGE = 'Coverage';

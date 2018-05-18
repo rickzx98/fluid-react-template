@@ -16,6 +16,7 @@ export default {
     './src/webpack-public-path',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, 'src/data/Mock.js'),
     path.resolve(__dirname, 'src/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
   ],
   target: 'web',
@@ -27,7 +28,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.APP_KEY': JSON.stringify('9de98220171-4ab8-a18d-435da60616d9'),
-      'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
+      'process.env.NODE_ENV': JSON.stringify('production'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
     }),
     new webpack.HotModuleReplacementPlugin(),
