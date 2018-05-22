@@ -6,3 +6,6 @@ export const SKIP_RENDER = "skipRender";
 export const PRIMARY_KEY = "primaryKey";
 export const FIELD = "field";
 export const REQUIRE = "require";
+export const PAGE = "page";
+export const BANNER = "banner";
+export const ICON = "icon";
