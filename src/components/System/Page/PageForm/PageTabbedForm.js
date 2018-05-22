@@ -1,5 +1,6 @@
 import {
   FluidForm,
+  FluidFunc,
   FormGroup,
   HiddenButton,
   ModelValueTransformer,
@@ -7,28 +8,27 @@ import {
   React,
   Tab,
   Tabs,
-  readOnlyWrapper,
-  FluidFunc
+  readOnlyWrapper
 } from '../imports';
 
-import {FormInput} from './FormInput';
-import {FormView} from './FormView';
-import {FLUID_GO_TO_TAB} from '../constants';
+import { FLUID_GO_TO_TAB } from '../constants';
+import { FormInput } from './FormInput';
+import { FormView } from './FormView';
 
 export class PageTabbedForm extends React.Component {
   static select(pageName, eventKey) {
-    return FluidFunc.start(`${pageName}_${FLUID_GO_TO_TAB}`, {eventKey});
+    return FluidFunc.start(`${pageName}_${FLUID_GO_TO_TAB}`, { eventKey });
   }
 
   constructor(props) {
     super(props);
-    this.state = {activeKey: 1};
+    this.state = { activeKey: 1 };
     this.setActiveKey = this._setActiveKey.bind(this);
     this.selectTab = this._selectTab.bind(this);
     FluidFunc.create(`${props.formName}_${FLUID_GO_TO_TAB}`)
-      .onStart(({eventKey}) => {
+      .onStart(({ eventKey }) => {
         this.selectTab(eventKey());
-      }).spec('eventKey', {require: true});
+      }).spec('eventKey', { require: true });
   }
 
   _selectTab(eventKey) {
@@ -39,7 +39,7 @@ export class PageTabbedForm extends React.Component {
   }
 
   _setActiveKey(activeKey) {
-    this.setState({activeKey});
+    this.setState({ activeKey });
   }
 
   renderTab(groups) {
@@ -49,7 +49,8 @@ export class PageTabbedForm extends React.Component {
       viewValueTransformer,
       fieldClass = () => '',
       fieldComponent,
-      viewComponent, formName
+      viewComponent,
+      formName
     } = this.props;
     const tabs = [];
     let eventKey = 1;
@@ -66,15 +67,15 @@ export class PageTabbedForm extends React.Component {
                   name={field.name}
                   className={fieldClass(field.name, index)}>
                   {readOnlyWrapper(<FormView
-                      field={field}
-                      formValue={formValue}
-                      viewValueTransformer={viewValueTransformer}
-                      viewComponent={viewComponent}/>,
+                    field={field}
+                    formValue={formValue}
+                    viewValueTransformer={viewValueTransformer}
+                    viewComponent={viewComponent} />,
                     (<FormInput
                       formName={formName}
                       FieldComponent={fieldComponent}
                       field={field}
-                      formValue={formValue}/>), readOnly)}
+                      formValue={formValue} />), readOnly)}
                 </FormGroup>))}
             </div>
             {this.props.extraContent && <div className="col-sm-6 extra-content">{this.props.extraContent(field)}</div>}
@@ -91,16 +92,17 @@ export class PageTabbedForm extends React.Component {
       formName,
       formSpecs,
       onSubmit, onFailed,
-      modelValueTransformer
+      modelValueTransformer,
+      activeKey
     } = this.props;
     return (<FluidForm name={formName} specs={formSpecs}
-                       onSubmit={(formValue) => ModelValueTransformer(formValue, modelValueTransformer, onSubmit)}
-                       onFailed={onFailed} fieldNodeGroup={(groups) =>
-      (<Tabs activeKey={this.state.activeKey} onSelect={this.selectTab} className="page-tabbed-form"
-             id={this.props.formName + '_tab'} defaultActiveKey={1}>
-        {this.renderTab(groups)}
-      </Tabs>)}>
-      <HiddenButton/>
+      onSubmit={(formValue) => ModelValueTransformer(formValue, modelValueTransformer, onSubmit)}
+      onFailed={onFailed} fieldNodeGroup={(groups) =>
+        (<Tabs activeKey={activeKey || this.state.activeKey} onSelect={this.selectTab} className="page-tabbed-form"
+          id={this.props.formName + '_tab'} defaultActiveKey={1}>
+          {this.renderTab(groups)}
+        </Tabs>)}>
+      <HiddenButton />
     </FluidForm>);
   }
 }
@@ -118,5 +120,6 @@ PageTabbedForm.propTypes = {
   viewValueTransformer: PropTypes.func,
   modelValueTransformer: PropTypes.func,
   extraContent: PropTypes.func,
-  onSelectTab: PropTypes.func
+  onSelectTab: PropTypes.func,
+  activeKey: PropTypes.number
 };

@@ -1,12 +1,34 @@
-import {FluidForm, PropTypes, React} from '../imports';
+import { PropTypes, React } from '../imports';
 
-export const FormInputNumber = ({field, formValue}) => {
-  return (<input disabled={field.isDisabled}
-                 type="number" placeholder={field.label} name={field.name}
-                 className="form-input-number form-control"
-                 value={FluidForm.getValue(formValue, field.name)}/>);
-};
+export class FormInputNumber extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChange = this._onChange.bind(this);
+  }
+  _onChange(event) {
+    this._setValue(event.target.value);
+  }
+  _setValue(value) {
+    if (value && value > -1) {
+      this.props.setValue(value);
+    } else {
+      this.props.setValue(this.props.getValue());
+    }
+  }
+  render() {
+    const { field, getValue } = this.props;
+    return (<input
+      disabled={field.isDisabled}
+      type="number"
+      onChange={this.onChange}
+      placeholder={field.label}
+      name={field.name}
+      className="form-input-number form-control"
+      value={getValue()} />);
+  }
+}
 FormInputNumber.propTypes = {
   field: PropTypes.object.isRequired,
-  formValue: PropTypes.object.isRequired
+  setValue: PropTypes.func.isRequired,
+  getValue: PropTypes.func.isRequired
 };

@@ -18,7 +18,7 @@ export const PageForm = ({ formName, formValue,
   fieldClass = () => '',
   fieldComponent,
   viewComponent }) => {
-  return (<FluidForm name={formName} specs={formSpecs}
+  return (<div className="page-form clearfix"><FluidForm name={formName} specs={formSpecs}
     onSubmit={(formValue) => _modelValueTransformer(formValue, modelValueTransformer, onSubmit)} onFailed={onFailed}
     fieldNode={(field, index) => {
       return (<FormGroup
@@ -40,7 +40,7 @@ export const PageForm = ({ formName, formValue,
       </FormGroup>);
     }}>
     <HiddenButton />
-  </FluidForm>);
+  </FluidForm></div>);
 };
 function _modelValueTransformer(formValue, transformer, onSubmit) {
   if (transformer) {

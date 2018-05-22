@@ -1,31 +1,11 @@
-import {FontAwesome, Label, PropTypes, React, FluidFunc} from '../imports';
+import { FontAwesome, Label, PropTypes, React } from '../imports';
 
-function Link({links, props, state, goToUrl, show, hide}) {
+import { PageLinkComponent } from "./PageLinkComponent";
+
+function Link({ links, props, state, goToUrl, show, hide }) {
   return links.filter(link => link.isVisible && link.isVisible instanceof Function ? link.isVisible(props, state) : true)
     .filter(link => (link.group === undefined || link.root) || (link.group && link.show))
-    .map(link => (<a onClick={() => {
-      if (link.root && !link.show && (link.active || !link.url)) {
-        show(link.group);
-      } else if (link.root && link.show && (link.active || !link.url)) {
-        hide(link.group);
-      } else {
-        if (link.fluid) {
-          const {name, data, resolve} = link.fluid;
-          if (FluidFunc.exists(name)) {
-            const promise = FluidFunc.start(name, data);
-            if (resolve && resolve instanceof Function) {
-              resolve(promise);
-            }
-          }
-        } else {
-          goToUrl(link.url);
-        }
-      }
-    }} key={link.name}
-                     className={`page-link list-group-item ${!link.root && link.group && 'grouped'} ${link.active ? 'active' : ''}`}>{link.icon &&
-    <FontAwesome name={link.icon} fixedWidth size="lg"/>}&nbsp;{link.label} {link.root &&
-    (<span className="pull-right">{link.show ? <FontAwesome name="caret-down" fixedWidth size="lg"/> :
-      <FontAwesome name="caret-left" fixedWidth size="lg"/>}</span>)}</a>));
+    .map(link => <PageLinkComponent key={link.name} goToUrl={goToUrl} show={show} hide={hide} link={link} />);
 }
 
 export class PageLinks extends React.Component {
@@ -40,7 +20,7 @@ export class PageLinks extends React.Component {
     links.filter(link => link.group === group).forEach(link => {
       link.show = true;
     });
-    this.setState({links});
+    this.setState({ links });
   }
 
   _hide(group) {
@@ -48,17 +28,17 @@ export class PageLinks extends React.Component {
     links.filter(link => link.group === group).forEach(link => {
       link.show = false;
     });
-    this.setState({links});
+    this.setState({ links });
   }
 
   render() {
-    const {props, state, goToUrl, links} = this.props;
+    const { props, state, goToUrl, links } = this.props;
     return (<div className="page-links col-md-3">
       <div className="page-links-content list-group">
         <div className="list-group-item page-links-heading">
-          <FontAwesome name="gears" fixedWidth size="lg"/>&nbsp;<Label label="LABEL_OPTIONS"/>
+          <FontAwesome name="gears" fixedWidth size="lg" />&nbsp;<Label label="LABEL_OPTIONS" />
         </div>
-        {Link({links, props, state, goToUrl, show: this.show, hide: this.hide})}</div>
+        {Link({ links, props, state, goToUrl, show: this.show, hide: this.hide })}</div>
     </div>);
   }
 }

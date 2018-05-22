@@ -1,6 +1,6 @@
-import {FluidForm, PropTypes, React} from "../imports";
+import { FluidForm, PropTypes, React } from "../imports";
 
-export const FormInput = ({formValue, field, FieldComponent, formName}) => {
+export const FormInput = ({ formValue, field, FieldComponent, formName }) => {
   let element = (
     <input
       disabled={field.isDisabled}
@@ -15,10 +15,10 @@ export const FormInput = ({formValue, field, FieldComponent, formName}) => {
     if (FieldComp instanceof Function) {
       element = (
         <FieldComp
-          getValue={() => FluidForm.getValue(formValue, field.name)}
+          getValue={(transformer) => FluidForm.getValue(formValue, field.name, transformer)}
           setValue={value => {
             FluidForm.set(formName, field.name, value);
-          }} formName={formName} formValue={formValue} field={field}/>
+          }} formName={formName} formValue={formValue} field={field} />
       );
     }
   }

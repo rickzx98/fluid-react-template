@@ -1,5 +1,15 @@
 .with-links {
   .page-links {
+    .adapt-link-theme {
+      label, input {
+        font-weight: 400;
+        font-size: 16px;
+        color: $hd-text-color;
+      }
+      input{
+        background: none;
+      }
+    }
     margin-bottom: 5px;
     padding-top: 0;
     padding-left: 2px;
@@ -14,7 +24,7 @@
         font-size: 16px;
         padding: 10px;
       }
-      .page-link {
+      .page-link, .page-link-custom {
         border-top: none;
         border-left: 1px solid $border-color !important;
         border-right: 1px solid $border-color !important;

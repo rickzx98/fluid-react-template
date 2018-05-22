@@ -33,7 +33,7 @@ export const CrudPageBody = ({ instance, page, pageName, specs, columns,
                 state={instance.state}
                 props={instance.props}
                 links={instance.state.links}
-                className={`clearfix ${!tabbed && "page-form"}`}
+                className={`clearfix`}
             >
                 {overridePages.create &&
                     overridePages.create({
@@ -66,6 +66,7 @@ export const CrudPageBody = ({ instance, page, pageName, specs, columns,
                             onFailed={instance.onFormFailed}
                             onSubmit={instance.onFormSubmit}
                             onSelectTab={instance.onSelectTab}
+                            activeKey={instance.state.activeKey}
                             readOnly={false}
                         />
                     )}
@@ -79,7 +80,7 @@ export const CrudPageBody = ({ instance, page, pageName, specs, columns,
                 state={instance.state}
                 props={instance.props}
                 links={instance.state.links}
-                className={`clearfix ${!tabbed && "page-form"}`}
+                className={`clearfix`}
             >
                 {overridePages.view &&
                     overridePages.view({
@@ -113,6 +114,7 @@ export const CrudPageBody = ({ instance, page, pageName, specs, columns,
                             onSubmit={instance.onFormSubmit}
                             onSelectTab={instance.onSelectTab}
                             readOnly={!instance.state.editable}
+                            activeKey={instance.state.activeKey}
                         />
                     )}
             </WithLinks>
@@ -125,7 +127,7 @@ export const CrudPageBody = ({ instance, page, pageName, specs, columns,
                 state={instance.state}
                 props={instance.props}
                 links={instance.state.links}
-                className={`clearfix ${!tabbed && "page-form"}`}>
+                className={`clearfix`}>
                 {screens[params.field].render({ ...params, state: instance.state, props: instance.props })}
             </WithLinks>);
         }

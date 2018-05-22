@@ -1,7 +1,7 @@
+import { COMMAND_SEARCH_LIST, FLUID_TRIGGER_COMMAND } from "../../constants";
 import { FluidForm, FluidFunc, React } from "../../imports";
 
 import { CrudPageBody } from './CrudPageBody';
-import { FLUID_TRIGGER_COMMAND } from "../../constants";
 import createHeaders from './createHeaders';
 import onFormSubmit from './onFormSubmit';
 import refresh from './refresh';
@@ -26,7 +26,7 @@ export default ({
 }) => instance => {
   instance.state = { editable: false, links };
   FluidFunc.create(`${pageName}_${FLUID_TRIGGER_COMMAND}`).onStart(param => {
-    instance.onTriggerCommand(param);
+    return instance.onTriggerCommand(param);
   });
   return {
     componentWillMount: () => {
@@ -40,7 +40,7 @@ export default ({
         instance.props.routing.location.pathname !==
         prevProps.routing.location.pathname
       ) {
-        instance.state = {};
+        instance.state = { activeKey: 1 };
         FluidForm.clear(pageName);
         instance.refresh();
         instance.createHeaders();
@@ -64,15 +64,25 @@ export default ({
       instance.state = {};
       FluidForm.clear(pageName);
     },
-    onTriggerCommand: ({ command }) => {
-      if (commands) {
-        commands(command(), {
+    commandSearch: (params) => {
+      return instance.props.actions.search(params.pageName(),
+        params.search("field"),
+        params.search("value"),
+        params.search("fetchAll"));//fix the transformer
+    },
+    onTriggerCommand: (params) => {
+      if (params.command() === COMMAND_SEARCH_LIST) {
+        return instance.commandSearch(params);
+      } else if (commands) {
+        return commands(params.command(), {
           state: instance.state,
           props: {
+            pageName,
             actions: instance.props.actions,
             pageForm: instance.props.pageForm,
             pageList: instance.props.pageList
-          }
+          },
+          params
         });
       }
     },

@@ -25,7 +25,7 @@ export const WithLinks = ({
           links && links.length > 0 ? "col-md-9" : ""
         }`}
       >
-        {children || ""};
+        {children || ""}
       </div>
     </div>
   );

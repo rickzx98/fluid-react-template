@@ -4,6 +4,7 @@ export class HeaderControl {
     constructor(label, fontIcon, onClick, action) {
         this.label = label;
         this.fontIcon = fontIcon;
+        this.icon = fontIcon;
         this.isActive = () => true;
         this.onClick = onClick instanceof Function ? onClick : () => {
             if (FluidFunc.exists(onClick)) {

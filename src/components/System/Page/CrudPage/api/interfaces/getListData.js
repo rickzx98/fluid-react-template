@@ -1,11 +1,16 @@
 import { FluidApi, FluidFunc } from '../../../imports';
 
 export default {
-  development: ({ pageName }) => new Promise((resolve, reject) => {
+  development: ({ pageName, parent }) => new Promise((resolve, reject) => {
     setTimeout(() => {
       FluidApi.storage(pageName()).then(({ data }) => {
         const result = {};
-        result[pageName()] = data();
+        if (parent && parent()) {
+          const { field, value } = parent();
+          result[pageName()] = data().filter(dt => dt[field] === value);
+        } else {
+          result[pageName()] = data();
+        }
         resolve({
           data: result
         });
