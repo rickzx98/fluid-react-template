@@ -1,0 +1,24 @@
+{
+    "pages": {
+        "Forms": {
+            "Hello": {
+                "pageLinks": {
+                    "name": "sample"
+                },
+                "page": {
+                    "banner": "/library-header.jpg",
+                    "label": "LABEL_SAMPLE_LABEL"
+                },
+                "types": {
+                    "hello": {
+                        "label": "LABEL_HELLO",
+                        "data": {}
+                    }
+                },
+                "columns": [
+                    "hello"
+                ]
+            }
+        }
+    }
+}

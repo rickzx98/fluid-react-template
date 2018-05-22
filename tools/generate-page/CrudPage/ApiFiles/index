@@ -1,0 +1,7 @@
+import FormSpec from "./${pageName}FormSpec";
+import TableColumns from "./${pageName}Columns";
+
+export default { 
+    FormSpec,
+    TableColumns
+};

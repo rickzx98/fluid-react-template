@@ -27,7 +27,8 @@
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watch",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "generate-crud-pages": "babel-node ./tools/generate-page/GenerateCrudPages.js"
   },
   "author": "Jerico de Guzman",
   "license": "MIT",
@@ -36,7 +37,7 @@
     "bootstrap": "3.3.7",
     "event-source-polyfill": "0.0.12",
     "fluid-commons": "^0.8.7",
-    "fluid-func": "^0.5.3",
+    "fluid-func": "^0.5.4",
     "font-awesome": "^4.7.0",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.20.1",
