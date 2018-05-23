@@ -1,7 +1,5 @@
-import FormSpec from "./${pageName}FormSpec";
-import TableColumns from "./${pageName}Columns";
+import _FormSpecs from "./${pageName}FormSpec";
+import _TableColumns from "./${pageName}Columns";
 
-export default { 
-    FormSpecs,
-    TableColumns
-};
+export const FormSpecs = _FormSpecs;
+export const TableColumns = _TableColumns;

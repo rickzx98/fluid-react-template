@@ -8,6 +8,7 @@ import {
     CREATE_IMPORTS,
     CREATE_PAGE,
     CREATE_PAGE_INDEX,
+    CREATE_ROUTES,
     PARSE_CONFIG
 } from "./fluid.info";
 import { FluidFunc, path } from "./imports";
@@ -22,6 +23,7 @@ require("./CrudPage/CreateConstants");
 require("./CrudPage/CreateImports");
 require("./CrudPage/CreatePage");
 require("./CrudPage/CreatePageIndex");
+require("./CrudPage/CreateRoutes");
 
 FluidFunc.start(PARSE_CONFIG, {
     jsonPath: path.resolve(__dirname, '../../crud-pages.fcg.json'),
@@ -36,7 +38,10 @@ FluidFunc.start(PARSE_CONFIG, {
         CREATE_API_COLUMNS,
         CREATE_IMPORTS,
         CREATE_PAGE,
-        CREATE_PAGE_INDEX], { config }).catch(err => { console.error(err) });
+        CREATE_PAGE_INDEX,
+        CREATE_ROUTES], { config }).catch(err => {
+            console.error(err);// eslint-disable-line no-console
+        });
 }).catch(err => {
-    console.error(err);
+    console.error(err);// eslint-disable-line no-console
 });

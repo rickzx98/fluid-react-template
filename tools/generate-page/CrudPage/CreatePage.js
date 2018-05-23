@@ -13,11 +13,11 @@ function action({ config }) {
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
                     const comp = subComponent[subField];
-                    const pagePath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/${subField}Page.js`)
+                    const pagePath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/${subField}Page.js`);
                     if (!fs.existsSync(pagePath)) {
-                        let content = `import { CrudPage, ${subField}, getLabel } from "./imports";\n`;
+                        let content = `import { CrudPage, getLabel } from "./imports";\n`;
                         content += `import { FormSpecs, TableColumns } from "./api/";\n`;
-                        content += "import { PAGE_NAME } from  \"./contants\";\n";
+                        content += "import { PAGE_NAME } from  \"./constants\";\n";
                         content += `export const ${subField}Page = CrudPage({\n`;
                         content += "\tpageName: PAGE_NAME,\n";
                         content += "\tFormSpecs,\n";

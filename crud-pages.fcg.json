@@ -4,15 +4,35 @@
             "Hello": {
                 "page": {
                     "banner": "/library-header.jpg",
-                    "label": "LABEL_SAMPLE_LABEL"
+                    "label": "LABEL_TITLE"
                 },
                 "types": {
                     "hello": {
-                        "label": "LABEL_HELLO",
+                        "label": "LABEL_TITLE",
                         "data": {}
                     },
                     "hi": {
-                        "label": "LABEL_HI",
+                        "label": "LABEL_TITLE",
+                        "data": {}
+                    }
+                },
+                "columns": [
+                    "hello",
+                    "hi"
+                ]
+            },
+            "Hello2": {
+                "page": {
+                    "banner": "/library-header.jpg",
+                    "label": "LABEL_TITLE"
+                },
+                "types": {
+                    "hello": {
+                        "label": "LABEL_TITLE",
+                        "data": {}
+                    },
+                    "hi": {
+                        "label": "LABEL_TITLE",
                         "data": {}
                     }
                 },

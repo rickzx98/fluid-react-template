@@ -13,7 +13,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
-                    const pageIndexPage = path.resolve(__dirname, `../../../src/components/${field}/${subField}/index.js`)
+                    const pageIndexPage = path.resolve(__dirname, `../../../src/components/${field}/${subField}/index.js`);
                     if (!fs.existsSync(pageIndexPage)) {
                         let content = `export { ${subField}Page } from "./${subField}Page";\n`;
                         fs.writeFileSync(pageIndexPage, content);

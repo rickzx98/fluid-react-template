@@ -1,0 +1,1 @@
+export { HelloPage } from "./HelloPage";

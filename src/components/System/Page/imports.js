@@ -17,7 +17,7 @@ export {
   DatePicker, Dropzone, ReactImage
 } from '../../common/';
 export { FluidTable, FluidForm, FluidApi } from 'fluid-commons';
-export { generateUID, getLabel, ModelValueTransformer, readOnlyWrapper, getRequireMessage } from '../../../utils/';
+export { generateUID, getLabel, ModelValueTransformer, readOnlyWrapper } from '../../../utils/';
 export { AjaxStatusActions } from '../AjaxStatus/';
 export { DialogActions } from '../Dialog/';
 export { HeaderActions } from '../Headers/';

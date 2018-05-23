@@ -11,7 +11,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
-                    const subFieldApiPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api`)
+                    const subFieldApiPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api`);
                     const subFieldApiIndexPath = path.resolve(subFieldApiPath, "index.js");
                     if (!fs.existsSync(subFieldApiPath)) {
                         fs.mkdirSync(subFieldApiPath);

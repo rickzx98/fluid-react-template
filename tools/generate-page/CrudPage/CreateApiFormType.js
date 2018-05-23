@@ -17,18 +17,18 @@ function action({ config }) {
                     const formType = path.resolve(__dirname, `../../../src/types/${subField}.js`);
                     let indexContent = fs.readFileSync(typeIndex);
                     if (!(indexContent.indexOf(subField) > -1)) {
-                        indexContent += `\nexport { ${subField} } from "./${subField}"`;
+                        indexContent += `\nexport { ${subField} } from "./${subField}";`;
                         fs.writeFileSync(typeIndex, indexContent);
                     }
                     if (!fs.existsSync(formType)) {
-                        let content = `export const ${subField} = { `;
+                        let content = `export const ${subField} = {\n`;
                         Object.keys(types).forEach((type, index, array) => {
-                            content += `${type.toUpperCase()}: "${type}"`;
+                            content += `\t${type.toUpperCase()}: "${type}"`;
                             if (index < array.length - 1) {
                                 content += ",\n";
                             }
                         });
-                        content += " };"
+                        content += "\n};";
                         fs.writeFileSync(formType, content);
                     }
 

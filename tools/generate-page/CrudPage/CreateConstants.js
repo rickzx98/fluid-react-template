@@ -12,7 +12,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
-                    const contantsPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/constants.js`)
+                    const contantsPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/constants.js`);
                     if (!fs.existsSync(contantsPath)) {
                         fs.writeFileSync(contantsPath, `export const PAGE_NAME = "${subField.toLowerCase()}";`);
                     }

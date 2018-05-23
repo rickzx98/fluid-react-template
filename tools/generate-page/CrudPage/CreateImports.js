@@ -13,7 +13,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
-                    const importsPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/imports.js`)
+                    const importsPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/imports.js`);
                     if (!fs.existsSync(importsPath)) {
                         let content = "export { getLabel } from \"../../../utils/\";\n";
                         content += "export { CrudPage } from \"../../System/Page/\";\n";

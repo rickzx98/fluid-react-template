@@ -12,7 +12,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
-                    const formSpecPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api/${subField}FormSpec.js`)
+                    const formSpecPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api/${subField}FormSpec.js`);
                     if (!fs.existsSync(formSpecPath)) {
                         const types = subComponent[subField][TYPES];
                         let formSpecContent = `import { ${subField}, getLabel } from "../imports";\n`;
@@ -20,14 +20,14 @@ function action({ config }) {
                         if (types) {
                             Object.keys(types).forEach((type, index, array) => {
                                 const theType = types[type];
-                                formSpecContent += `{\n\t${LABEL} : getLabel("${theType[LABEL]}"),\n\t${FIELD} : "${type}",\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}`;
+                                formSpecContent += `{\n\t${LABEL} : getLabel("${theType[LABEL]}"),\n\t${FIELD} : ${subField}.${type.toUpperCase()},\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}`;
                                 if (theType[DATA]) {
                                     let dataFieldBuilder = "{\n";
                                     if (theType[DATA][REQUIRE]) {
                                         dataFieldBuilder += `${REQUIRE}: ${theType[DATA][REQUIRE]}`;
                                     }
                                     dataFieldBuilder += "}";
-                                    formSpecContent += `,\n\t${DATA}: ${dataFieldBuilder}`
+                                    formSpecContent += `,\n\t${DATA}: ${dataFieldBuilder}`;
                                 }
                                 formSpecContent += "}";
                                 if (index < array.length - 1) {
