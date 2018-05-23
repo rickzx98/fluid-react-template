@@ -15,10 +15,10 @@ function action({ config }) {
                     const formSpecPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api/${subField}FormSpec.js`)
                     if (!fs.existsSync(formSpecPath)) {
                         const types = subComponent[subField][TYPES];
-                        let formSpecContent = `import { ${subField}, getLabel } from "../imports"\n`;
+                        let formSpecContent = `import { ${subField}, getLabel } from "../imports";\n`;
                         formSpecContent += "export default () => [";
-                        for (let type in types) {
-                            if (types.hasOwnProperty(type)) {
+                        if (types) {
+                            Object.keys(types).forEach((type, index, array) => {
                                 const theType = types[type];
                                 formSpecContent += `{\n\t${LABEL} : getLabel("${theType[LABEL]}"),\n\t${FIELD} : "${type}",\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}`;
                                 if (theType[DATA]) {
@@ -30,7 +30,10 @@ function action({ config }) {
                                     formSpecContent += `,\n\t${DATA}: ${dataFieldBuilder}`
                                 }
                                 formSpecContent += "}";
-                            }
+                                if (index < array.length - 1) {
+                                    formSpecContent += ",\n";
+                                }
+                            });
                         }
                         formSpecContent += "];";
                         fs.writeFileSync(formSpecPath, formSpecContent);

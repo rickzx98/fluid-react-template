@@ -24,7 +24,7 @@ function action({ config }) {
                         content += "\tTableColumns,\n";
                         content += "\tpage: {\n";
                         content += `\t\tbanner: "${comp[PAGE][BANNER]}",\n`;
-                        content += `\t\tlabel: getLabel(${comp[PAGE][LABEL]}),\n`;
+                        content += `\t\tlabel: getLabel("${comp[PAGE][LABEL]}"),\n`;
                         content += `\t\ticon: ${comp[PAGE][ICON]} }\n`;
                         content += "\t\t});";
                         fs.writeFileSync(pagePath, content);

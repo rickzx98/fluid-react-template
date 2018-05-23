@@ -1,4 +1,4 @@
-import { DATA, FIELD, LABEL, PAGES, PRIMARY_KEY, REQUIRE, SKIP_RENDER, TYPES } from "../ConfigType";
+import { COLUMNS, DATA, FIELD, LABEL, PAGES, PRIMARY_KEY, REQUIRE, SKIP_RENDER, TYPES } from "../ConfigType";
 import { FluidFunc, fs, path } from "../imports";
 
 import { CREATE_API_COLUMNS } from "../fluid.info";
@@ -15,13 +15,17 @@ function action({ config }) {
                     const columnPath = path.resolve(__dirname, `../../../src/components/${field}/${subField}/api/${subField}Columns.js`)
                     if (!fs.existsSync(columnPath)) {
                         const types = subComponent[subField][TYPES];
-                        let columnContent = `import { ${subField}, getLabel } from "../imports"\n`;
+                        const columns = subComponent[subField][COLUMNS];
+                        let columnContent = `import { ${subField}, getLabel } from "../imports";\n`;
                         columnContent += "export default [";
-                        for (let type in types) {
-                            if (types.hasOwnProperty(type)) {
+                        if (columns) {
+                            columns.forEach((type, index, array) => {
                                 const theType = types[type];
                                 columnContent += `{\n\t${LABEL} : getLabel("${theType[LABEL]}"),\n\t${FIELD} : "${type}",\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}\n}`;
-                            }
+                                if (index < array.length - 1) {
+                                    columnContent += ",\n";
+                                }
+                            });
                         }
                         columnContent += "];";
                         fs.writeFileSync(columnPath, columnContent);

@@ -2,9 +2,6 @@
     "pages": {
         "Forms": {
             "Hello": {
-                "pageLinks": {
-                    "name": "sample"
-                },
                 "page": {
                     "banner": "/library-header.jpg",
                     "label": "LABEL_SAMPLE_LABEL"
@@ -13,10 +10,15 @@
                     "hello": {
                         "label": "LABEL_HELLO",
                         "data": {}
+                    },
+                    "hi": {
+                        "label": "LABEL_HI",
+                        "data": {}
                     }
                 },
                 "columns": [
-                    "hello"
+                    "hello",
+                    "hi"
                 ]
             }
         }
