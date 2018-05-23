@@ -16,7 +16,6 @@ import Root from './components/System/RootPage/Root';
 import { SecurityActions } from './components/System/Security/';
 import { render } from 'react-dom';
 
-require('./interfaces/');
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 const store = configureStore();
 store.dispatch(SecurityActions.loadCurrentUser()); // load authenticated user

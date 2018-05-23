@@ -1,11 +1,25 @@
-import { PropTypes, PureComponent, React, Switch, routes } from './imports';
-
-import { PageRoutes } from "./components/PageRoutes";
+import { PropTypes, PureComponent, React, Route, Switch, routes } from './imports';
 
 export default class RouteBlocker extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.routeElements = [];
+    if (routes) {
+      routes.forEach((module, index) => {
+        module.pages.forEach(page => {
+          this.routeElements.push(<Route
+            exact
+            key={`page_${index}`}
+            path={page.path}
+            component={page.component} />);
+        });
+      });
+    }
+  }
   render() {
+
     return (<Switch>
-      {routes && routes.map(route => <PageRoutes key={route.name} crudPages={route.pages} />)}
+      {this.routeElements || ""}
     </Switch>);
   }
 }

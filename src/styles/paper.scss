@@ -1,17 +1,20 @@
 .paper {
   padding: 1.54cm;
   margin: auto;
+  &.paper-printing {
+    padding:0;
+  }
   &.a4 {
     &.portrait {
       width: 21cm;
       min-height: 29.7cm;
     }
-    &.paddin03in {
-      padding: 0.03in;
-    }
-    &.padding05cm {
-      padding: 0.5cm;
-    }
+  }
+  &.paddin03in {
+    padding: 0.03in;
+  }
+  &.padding05cm {
+    padding: 0.5cm;
   }
   background: white;
   font-family: Arial, Helvetica, sans-serif;

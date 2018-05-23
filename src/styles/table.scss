@@ -15,6 +15,9 @@
     .fluid-table-filter-row {
         display: none;
         background: none;
+        &.show-filter {
+          display: block;
+        }
     }
     .fluid-row {
         background: $table-background-color;
@@ -31,15 +34,18 @@
             color: $hd-text-color;
         }
     }
-    &.table-hover {
-        tbody {
-            tr.fluid-row {
-                &:hover {
-                    cursor: pointer !important;
-                    background-color: $table-hover-background;
-                    color: $hd-text-color;
+    &:not(.read-only){
+        &.table-hover {
+            tbody {
+                tr.fluid-row {
+                    &:hover {
+                        cursor: pointer !important;
+                        background-color: $table-hover-background;
+                        color: $hd-text-color;
+                    }
                 }
             }
         }
     }
+   
 }
