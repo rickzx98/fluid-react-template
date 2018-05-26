@@ -20,7 +20,7 @@ function action({ config }) {
                         if (types) {
                             Object.keys(types).forEach((type, index, array) => {
                                 const theType = types[type];
-                                formSpecContent += `{\n\t${LABEL} : getLabel("${theType[LABEL]}"),\n\t${FIELD} : ${subField}.${type.toUpperCase()},\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}`;
+                                formSpecContent += `{\n\t${LABEL} : ${theType[LABEL] ? `getLabel("${theType[LABEL]}")` : "undefined"},\n\t${FIELD} : ${subField}.${type.toUpperCase()},\n\t${PRIMARY_KEY} : ${theType[PRIMARY_KEY] || "false"},\n\t${SKIP_RENDER} : ${theType[SKIP_RENDER] || "false"}`;
                                 if (theType[DATA]) {
                                     let dataFieldBuilder = "{\n";
                                     if (theType[DATA][REQUIRE]) {

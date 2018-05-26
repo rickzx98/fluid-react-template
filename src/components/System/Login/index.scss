@@ -1,5 +1,39 @@
 .login {
-    padding-top: 10%;
+    padding-top: 15%;
     padding-left: 30%;
     padding-right: 30%;
+    .login-header {
+        background: $module-page-form-background;
+        width: 30%;
+        border-top-left-radius: 4px;
+        text-align: center;
+        font-weight: 500;
+        color: $hd-text-color;
+        border: 1px solid $border-color;
+        h4 {
+            text-align: left;
+            text-indent: 5px;
+        }
+
+        i {
+            margin-left: 13px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        img { 
+           margin-left: 5px;
+           margin-top: 2px;
+           border-radius: 10px;
+           margin-right: 5px;
+        }
+    }
+    .page-form {
+        .login-control {
+            padding-top: 5px;
+            text-align: right;
+            .login-button {
+                display: inline-block;
+            }
+        }
+    }
 }

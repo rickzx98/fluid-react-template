@@ -17,7 +17,7 @@ export const PageForm = ({ formName, formValue,
   modelValueTransformer,
   fieldClass = () => '',
   fieldComponent,
-  viewComponent }) => {
+  viewComponent, children = "" }) => {
   return (<div className="page-form clearfix"><FluidForm name={formName} specs={formSpecs}
     onSubmit={(formValue) => _modelValueTransformer(formValue, modelValueTransformer, onSubmit)} onFailed={onFailed}
     fieldNode={(field, index) => {
@@ -39,6 +39,7 @@ export const PageForm = ({ formName, formValue,
             formValue={formValue} />), readOnly)}
       </FormGroup>);
     }}>
+    {children}
     <HiddenButton />
   </FluidForm></div>);
 };
@@ -61,5 +62,10 @@ PageForm.propTypes = {
   fieldComponent: PropTypes.func,
   viewValueTransformer: PropTypes.func,
   modelValueTransformer: PropTypes.func,
-  viewComponent: PropTypes.func
+  viewComponent: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.object
+  ])
 };

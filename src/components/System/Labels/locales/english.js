@@ -17,6 +17,8 @@ export const LABE_UPDATE = "Update";
 export const LABEL_RESET = "Reset";
 export const LABEL_UPDATE = "Update";
 export const LABEL_ADD_NEW = "Add new";
+export const LABEL_INVALID_USERNAME_OR_PASSWORD = "Invalid username or password";
+export const LABEL_LOGIN_TO = "Login to ";
 export const LABEL_MEDICAL_DETAIL = "Medical Detail";
 export const LABEL_CUSTOMER_INFORMATION = "Customer Information";
 export const LABEL_TRAVEL_INFORMATION = "Travel Information";
@@ -313,3 +315,13 @@ export const LABEL_UPDATE_collectionTitles_SUCCESS = "Collection has been update
 export const LABEL_FAILED_TO_UPDATE_collectionTiles = "Failed to update collection tiles";
 export const LABEL_DELETE_collectionTitles_SUCCESS = "Collection title has been deleted";
 export const LABEL_FAILED_TO_DELETE_collectionTitles = "Failed to delete collection title";
+
+
+// Employee
+export const LABEL_EMPLOYEE = "Employee";
+export const LABEL_FULL_NAME = "Full name";
+export const LABEL_EMPLOYEE_ID = "Employee ID";
+export const LABEL_STATUS = "Status";
+export const LABEL_POSITION = "Position";
+
+export const LABEL_LOGIN = "Login";

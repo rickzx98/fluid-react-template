@@ -17,7 +17,7 @@ class App extends React.Component {
         {isAuthenticated && <Header {...this.props} navComponents={NavComponents} />}
         <NotificationPage />
         <DialogPage />
-        {isAuthenticated && <RouteBlocker routing={this.props.routing} />}
+        <RouteBlocker routing={this.props.routing} />
       </FluidApi>
     );
   }

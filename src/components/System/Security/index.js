@@ -4,3 +4,4 @@ import reducer from './reducer/SecurityReducer';
 
 export const SecurityReducer = reducer;
 export const SecurityActions = Actions;
+export { SecurityAPI } from "./api/";

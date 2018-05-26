@@ -1,3 +1,5 @@
+import * as actions from "./actions/LoginActions";
+
 import { CreatePage, CreateReduxPage, PropTypes } from "./imports";
 
 import Instance from "./instance";
@@ -11,4 +13,4 @@ export const LoginPage = CreateReduxPage(CreatePage(Instance, {
     pageForm: fluidForm[PAGE_NAME] || { data: {} },
     routing,
     ajax: ajaxStatus
-}));
+}), { actions });

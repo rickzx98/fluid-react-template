@@ -1,4 +1,5 @@
-import {PropTypes, PureComponent, React, Switch, routes, HomePage} from './imports';
+import { HomePage, PropTypes, PureComponent, React, Switch, routes } from './imports';
+
 import AuthorizedRoute from "./components/AuthorizedRoute";
 
 export default class RouteBlocker extends PureComponent {
@@ -12,7 +13,7 @@ export default class RouteBlocker extends PureComponent {
             exact
             key={`page_${index}`}
             path={page.path}
-            component={page.component}/>);
+            component={page.component} />);
         });
       });
     }
@@ -21,7 +22,7 @@ export default class RouteBlocker extends PureComponent {
   render() {
 
     return (<Switch>
-      <AuthorizedRoute exact path="/" component={HomePage}/>
+      <AuthorizedRoute exact path="/" component={HomePage} />
       {this.routeElements || ""}
     </Switch>);
   }

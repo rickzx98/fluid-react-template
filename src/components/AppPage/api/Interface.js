@@ -1,5 +1,6 @@
-import { PageAPI } from '../imports';
-
+import { LoginApi, PageAPI, SecurityAPI } from '../imports';
 export default {
-  ...PageAPI
+  ...PageAPI,
+  ...LoginApi,
+  ...SecurityAPI
 };

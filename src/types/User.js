@@ -1,9 +1,8 @@
 export const User = {
-  ID: '_id',
-  USERNAME: 'username',
-  PASSWORD: 'password',
-  CONFIRM_PASSWORD: 'confirmPassword',
-  EMAIL: 'email',
-  FULL_NAME: 'fullName',
-  USER_GROUP: 'userGroup'
+	_ID: "_id",
+	USERNAME: "username",
+	PASSWORD: "password",
+	CONFIRMPASSWORD: "confirmPassword",
+	EMAIL: "email",
+	FULLNAME: "fullName"
 };

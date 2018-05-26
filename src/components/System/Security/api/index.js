@@ -1,13 +1,3 @@
-import MockApi from './MockApi';
-import ServiceApi from './ServiceApi';
+import loadCurrentUser from "./interfaces/loadCurrentUser";
 
-const ENV = process.env.NODE_ENV || 'DEVELOPMENT';
-
-export const getApi = () => {
-    switch (ENV) {
-        case 'production':
-            return ServiceApi;
-        default:
-            return MockApi;
-    }
-};
+export const SecurityAPI = { loadCurrentUser };

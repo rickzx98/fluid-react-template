@@ -1,44 +1,52 @@
 {
     "pages": {
-        "Forms": {
-            "Hello": {
+        "Admin": {
+            "User": {
                 "page": {
-                    "banner": "/library-header.jpg",
-                    "label": "LABEL_TITLE"
+                    "label": "LABEL_USER",
+                    "banner": "./home-banner.jpg",
+                    "icon": "user"
                 },
                 "types": {
-                    "hello": {
-                        "label": "LABEL_TITLE",
-                        "data": {}
+                    "_id": {
+                        "primaryKey": true,
+                        "skipRender": true
                     },
-                    "hi": {
-                        "label": "LABEL_TITLE",
-                        "data": {}
+                    "username": {
+                        "label": "LABEL_USERNAME",
+                        "data": {
+                            "require": true
+                        }
+                    },
+                    "password": {
+                        "label": "LABEL_PASSWORD",
+                        "data": {
+                            "require": true
+                        }
+                    },
+                    "confirmPassword": {
+                        "label": "LABEL_CONFIRM_PASSWORD",
+                        "data": {
+                            "require": true
+                        }
+                    },
+                    "email": {
+                        "label": "LABEL_EMAIL",
+                        "data": {
+                            "require": true
+                        }
+                    },
+                    "fullName": {
+                        "label": "LABEL_FULL_NAME",
+                        "data": {
+                            "require": true
+                        }
                     }
                 },
                 "columns": [
-                    "hello",
-                    "hi"
-                ]
-            },
-            "Hi": {
-                "page": {
-                    "banner": "/library-header.jpg",
-                    "label": "LABEL_TITLE"
-                },
-                "types": {
-                    "hello": {
-                        "label": "LABEL_TITLE",
-                        "data": {}
-                    },
-                    "hi": {
-                        "label": "LABEL_TITLE",
-                        "data": {}
-                    }
-                },
-                "columns": [
-                    "hello",
-                    "hi"
+                    "_id",
+                    "fullName",
+                    "username"
                 ]
             }
         }

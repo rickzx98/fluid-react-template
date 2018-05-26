@@ -11,3 +11,4 @@ export const BANNER = "banner";
 export const ICON = "icon";
 export const PAGE_LINKS = "pageLinks";
 export const COLUMNS = "columns";
+export const FIELD_CLASS = "fieldClass";
