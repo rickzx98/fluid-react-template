@@ -1,7 +1,4 @@
-import React from 'react';
+import {CreatePage} from "./imports";
+import Instance from "./Instance";
 
-export class HomePage extends React.Component {
-    render() {
-        return (<div>Home Page</div>);
-    }
-}
+export const HomePage = CreatePage(Instance);

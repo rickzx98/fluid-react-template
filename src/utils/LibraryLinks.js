@@ -1,5 +1,5 @@
-import { OptionLinks } from './OptionLinks';
-import { getLabel } from './getLabel';
+import {OptionLinks} from './OptionLinks';
+import {getLabel} from './getLabel';
 
 export class LibraryLinks extends OptionLinks {
   constructor(omit) {

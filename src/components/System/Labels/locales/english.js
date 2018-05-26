@@ -1,5 +1,6 @@
 export const appName = "SWIFT";
 export const welcome = "Welcome, ";
+export const LABEL_HOME = "Home Page";
 export const LABEL_YES = "Yes";
 export const LABEL_NO = "No";
 export const LABEL_CATALOGING = "Cataloging";
@@ -303,8 +304,8 @@ export const LABEL_SEARCH = "Search";
 //Collection Titles
 export const LABEL_COLLECTION_TITLES = "Collection titles";
 
-// messages 
-//Collection titles 
+// messages
+//Collection titles
 export const LABEL_LOADING_collectionTitles_LIST_FAILED = "Failed to fetch collection titles";
 export const LABEL_CREATE_collectionTitles_SUCCESS = "Added to collection";
 export const LABEL_FAILED_TO_CREATE_collectionTitles = "Failed to add to collection titles";
