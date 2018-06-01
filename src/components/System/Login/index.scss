@@ -3,8 +3,8 @@
     padding-left: 30%;
     padding-right: 30%;
     .login-header {
-        background: $module-page-form-background;
-        width: 30%;
+        background: lighten($module-page-form-background, 10);
+        width: inherit;
         border-top-left-radius: 4px;
         text-align: center;
         font-weight: 500;
@@ -28,6 +28,7 @@
         }
     }
     .page-form {
+        border-radius: 0px;
         .login-control {
             padding-top: 5px;
             text-align: right;

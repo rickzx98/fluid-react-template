@@ -7,6 +7,7 @@ export default {
         username: "admin",
         password: "admin",
         fullName: "Jerico Pogi"
+
       }]
     };
   }

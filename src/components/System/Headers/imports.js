@@ -10,5 +10,5 @@ export { connect } from 'react-redux';
 export { getLabel } from '../../../utils/';
 export { browserHistory } from 'react-router';
 export { FluidLabel } from 'fluid-commons';
-
+export { Link } from "react-router-dom";
 export const FluidFunc = _FluidFunc;

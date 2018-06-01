@@ -1,4 +1,4 @@
-import { FluidLabel, LoadingBalls, Nav, Navbar, PropTypes, React } from '../imports';
+import { FluidLabel, Link, LoadingBalls, Nav, Navbar, PropTypes, React } from '../imports';
 
 import { HeaderControls } from './HeaderControls';
 
@@ -7,10 +7,10 @@ export const HeadersBody = ({ locale, appLabel, navComponents,
     return (<Navbar collapseOnSelect fixedTop={true} fluid={true}>
         <Navbar.Header>
             <Navbar.Brand>
-                <a href="">
+                <Link to="/">
                     {!ajax.started && <img className="pull-left header-thumbnail" height="24" width="24" src="/app-icon.png" />}
                     {ajax.started && <div className="header-loader"><LoadingBalls /></div>}
-                    <div className="pull-right"> <FluidLabel label="appName" locale={locale} name={appLabel} /></div></a>
+                    <div className="pull-right"> <FluidLabel label="appName" locale={locale} name={appLabel} /></div></Link>
             </Navbar.Brand>
             <Navbar.Toggle />
         </Navbar.Header>

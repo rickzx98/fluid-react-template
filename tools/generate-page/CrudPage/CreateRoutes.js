@@ -1,7 +1,7 @@
 import { FluidFunc, fs, path } from "../imports";
+import { ICON, PAGE, PAGES } from "../ConfigType";
 
 import { CREATE_ROUTES } from "../fluid.info";
-import { PAGES } from "../ConfigType";
 
 FluidFunc.create(CREATE_ROUTES).onStart(action).spec("config", { require: true });
 
@@ -12,6 +12,7 @@ function action({ config }) {
             const subComponent = crudPages[field];
             for (let subField in subComponent) {
                 if (subComponent.hasOwnProperty(subField)) {
+                    const icon = subComponent[subField][PAGE][ICON];
                     const routeIndex = path.resolve(__dirname, `../../../src/routes/index.js`);
                     const routePage = path.resolve(__dirname, `../../../src/routes/${subField}.js`);
                     let indexContent = fs.readFileSync(routeIndex);
@@ -30,9 +31,10 @@ function action({ config }) {
                         const PageComponent = `${subField}Page`;
                         let content = `import { ${subField}Page } from "../components/${field}/${subField}";`;
                         content += "\nexport default { ";
-                        content += `\nname:"${subField.toLowerCase()}",`;
-                        content += `\npages:[\n\t{ path: "/${PAGE_NAME}", component: ${PageComponent} },\n\t{path:"/${PAGE_NAME}/new",component: ${PageComponent} },\n\t{ path:"/${PAGE_NAME}/view/:id", component: ${PageComponent}}]`;
-                        content += " };";
+                        content += `\n\troot: "${field}",`;
+                        content += `\n\tname: "${subField.toLowerCase()}",`;
+                        content += `\n\tpages: [\n\t\t{ icon: "${icon}", path: "/${PAGE_NAME}", component: ${PageComponent}, name: "${subField.toLowerCase()}", label: "LABEL_${subField.toUpperCase()}" },\n\t\t{ path: "/${PAGE_NAME}/new", component: ${PageComponent}, skipLink: true },\n\t\t{ path: "/${PAGE_NAME}/view/:id", component: ${PageComponent}, skipLink: true }]`;
+                        content += "\n};";
                         fs.writeFileSync(routePage, content);
                     }
 

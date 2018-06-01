@@ -1,0 +1,27 @@
+.home-page {
+    .home-page-tiles {
+        .home-page-search {
+            margin-bottom: 5px;
+        }
+        .home-page-tile{
+            .home-page-tile-header {
+                font-weight: 600;
+                color: $hd-text-color;
+            }
+            .home-page-tile-link {
+                border-top: none;
+                border-bottom: 1px solid $border-color !important;
+                padding: 8px;
+                font-weight: 400;
+                font-size: 16px;
+                color: $hd-text-color;
+                background:none;
+                &:hover, &.active {
+                  cursor: pointer;
+                  background: $awe-blueH;
+                  color: $hd-text-color;
+                }
+            }
+        }
+    }
+}

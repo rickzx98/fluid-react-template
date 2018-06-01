@@ -10,3 +10,4 @@ export { toReadableText } from "./JsonFormat";
 export { getLabel } from "./getLabel";
 export { ModelValueTransformer } from "./ModelTransformer";
 export { printA4, printWithQuantity } from "./Printable";
+export { groupBy } from "./groupBy";

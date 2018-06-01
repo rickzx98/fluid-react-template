@@ -325,3 +325,5 @@ export const LABEL_STATUS = "Status";
 export const LABEL_POSITION = "Position";
 
 export const LABEL_LOGIN = "Login";
+
+export const LABEL_USER = "User";
