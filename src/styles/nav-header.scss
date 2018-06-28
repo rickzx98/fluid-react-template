@@ -1,6 +1,28 @@
+.navbar.navbar-default.navbar-fixed-top {
+  background: $nav-header-background;
+}
+.navbar-collapse {
+   background: darken($nav-header-control-background, 15);
+  .navbar-nav {
+    li[role="presentation"] {
+      a {
+        &:hover {
+          background: darken($nav-header-control-background, 25);
+          color: $hd-text-color !important;
+        } &:focus {
+          background: darken($nav-header-control-background, 25);
+          color: $hd-text-color !important;
+        }
+      }
+    }
+  }
+}
+  
+
+
 @media(min-width: $screen-sm-min) {
-  .navbar.navbar-default.navbar-fixed-top {
-    background: $nav-header-background;
+  .navbar-collapse {
+    background: none;
   }
   .navbar-default {
     color: $hd-text-color !important;

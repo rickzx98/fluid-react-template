@@ -11,3 +11,4 @@ export const PropTypes = _PropTypes;
 export { Page, FontAwesome } from "../../common/";
 export { getLabel, groupBy } from "../../../utils/";
 export { Link } from "react-router";
+export { HeaderActions } from "../Headers/";

@@ -9,6 +9,9 @@ export default (instance) => {
     instance.onClick(param);
   }).spec("command", { require: true });
   return {
+    componentWillMount: () => {
+      instance.props.actions.resetHeaders();
+    },
     onClick: ({ command, url }) => {
       switch (command()) {
         case ON_CLICK_LINK:

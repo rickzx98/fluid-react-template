@@ -9,3 +9,4 @@ export const CREATE_IMPORTS = "GeneratePage.CREATE_IMPORTS";
 export const CREATE_PAGE = "GeneratePage.CREATE_PAGE";
 export const CREATE_PAGE_INDEX = "GeneratePage.CREATE_PAGE_INDEX";
 export const CREATE_ROUTES = "GeneratePage.CREATE_ROUTES";
+export const CREATE_STORAGE = "GeneratePage.CREATE_STORAGE";

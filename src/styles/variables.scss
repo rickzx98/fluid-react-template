@@ -7,14 +7,18 @@ $vin-green: #60b044;
 $vin-red: #e26e6e;
 $hd-text-color: #ececed;
 $fd-bg-color: #3f5c73;
-$page-header-height: 160px;
+$page-header-height: 47px;
 $app-title-color: #e2e2e2;
 $loading-color: #ececed;
 $border-color: #cccccc;
 $screen-lg-min: 1200px;
 $screen-md-min: 992px;
 $screen-sm-min: 768px;
+$screen-xs-min: 576px;
 $background-color: #1a5286 !important;
+$primary-color: #605c60;
+$danger-color: #5f021f;
+$warning-color: #bbbbbb;
 $font-main: 14px 'Helvetica Neue',
 Helvetica,
 Arial,
@@ -32,7 +36,7 @@ $form-control-font-weight: 500;
 $form-group-label-font-weight: 600;
 /*Nav header*/
 
-$nav-header-background: rgba(172, 172, 172, 0.6);
+$nav-header-background: rgba(172, 172, 172, 0.2);
 $nav-header-control-background:rgba(172, 172, 172, 0.9);
 /*Page*/
 

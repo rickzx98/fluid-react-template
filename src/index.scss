@@ -1,19 +1,20 @@
 /* Variables */
-
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import './theme/bootstrap/bootstrap.css';
-@import '../node_modules/normalize.css/normalize.css';
-@import './styles/variables.scss';
-@import './styles/mixin.scss';
-@import './styles/paper.scss';
-@import './styles/nav-header.scss';
-@import './styles/body.scss';
-@import './styles/table.scss';
-@import './styles/form.scss';
-@import './styles/bootstrap-classes.scss';
-@import '../node_modules/animate.css/animate.css';
-@import '../node_modules/font-awesome/css/font-awesome.css';
-@import '../components/index.scss';
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "./theme/bootstrap/bootstrap.css";
+@import "../node_modules/normalize.css/normalize.css";
+@import "./styles/variables.scss";
+@import "./styles/mixin.scss";
+@import "./styles/paper.scss";
+@import "./styles/nav-header.scss";
+@import "./styles/body.scss";
+@import "./styles/table.scss";
+@import "./styles/form.scss";
+@import "./styles/modal.scss";
+@import "./styles/buttons.scss";
+@import "./styles/bootstrap-classes.scss";
+@import "../node_modules/animate.css/animate.css";
+@import "../node_modules/font-awesome/css/font-awesome.css";
+@import "../components/index.scss";
 .margin-bottom-5px {
     margin-bottom: 5px;
 }

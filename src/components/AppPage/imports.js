@@ -1,7 +1,8 @@
 import _routes from "../../routes/";
+import _storage from "../../storage/";
 import pt from "prop-types";
 import r from "react";
-
+export const storage = _storage;
 export const routes = _routes;
 export const PropTypes = pt;
 export const React = r;

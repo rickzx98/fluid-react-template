@@ -23,7 +23,7 @@ export const LoginPageBody = ({ instance }) => (<div className="login clearfix">
             }
         }}>
         <div className="login-control">
-            <FluidButton disabled={instance.props.ajax.started} className="login-button btn btn-default btn-md" type="submit">{getLabel("LABEL_LOGIN")}</FluidButton>
+            <FluidButton disabled={instance.props.ajax.started} className="login-button btn btn-primary btn-md" type="submit">{getLabel("LABEL_LOGIN")}</FluidButton>
         </div>
     </PageForm>
 </div>);

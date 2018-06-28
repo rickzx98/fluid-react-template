@@ -8,12 +8,13 @@ export const PageHeader = ({ label, iconName, imageUrl }) => {
     style = { backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover' };
   }
   return (<div style={style} className="page-header animated fadeIn">
-    <div className="page-background-fader" />
-    <h3 className="page-header-title">
-      <FontAwesome
-        name={iconName} size="lg" fixedWidth={true} />
-      <p> {label} </p>
-    </h3>
+    {/* <div className="page-background-fader" /> */}
+    <div className="page-header-title">
+      <div className="page-header-brand">
+        <FontAwesome  name={iconName} size="lg" fixedWidth={true} />
+        <span> {label} </span>
+      </div>
+    </div>
   </div>);
 };
 

@@ -183,8 +183,9 @@
 .page {
     margin-top: -42px;
     .page-header {
+        z-index: 2;
         .page-background-fader {
-            z-index: 1;
+            z-index: 0;
             width: 100%;
             height: $page-header-height;
             position: absolute;
@@ -193,23 +194,32 @@
         }
         height: $page-header-height;
         .page-header-title {
-            z-index: 2;
+            z-index: -1;
             position: relative;
-            padding-top: 64px;
+            padding-top: 60px;
+            padding-right: 15px;
+            font-size: 18px;
             color: $hd-text-color;
-            text-align: center;
+            text-align: right;
             font-weight: 600;
             font-family: 'BebasNeueRegular';
             p {
                 &::first-letter {
-                    font-weight: 800;
+                    font-weight: 600;
                     border-bottom: 1px solid $hd-text-color;
                 }
+            }
+            .page-header-brand {
+                display: inline-block;
+                padding: 15px;
+                margin-top: -14px;
+                height: 43px;   
+                background: $nav-header-background;
             }
         }
     }
     .page-body {
-        padding: 0 15px;
+        padding: 20px 15px;
     }
 }
 
