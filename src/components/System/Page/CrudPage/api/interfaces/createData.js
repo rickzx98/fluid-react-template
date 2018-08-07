@@ -25,7 +25,7 @@ export default {
       }
       FluidFunc.start(param.pageName(), { action: 'createData', ...paramCopy })
         .then(({ data }) => {
-          resolve({ data });
+          resolve({ data: data() });
         })
         .catch(error => { reject(error); });
     } catch (error) {

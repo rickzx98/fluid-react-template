@@ -15,4 +15,3 @@ export { PageLinks } from './PageLinks/PageLinks';
 export { FLUID_GO_TO_TAB } from './constants';
 export { FormDate, FormYesOrNO, FormInputNumber, FormTextArea, FormImageUploader, LinkSearch, FormInputPassword } from './components/';
 export { triggerCommands } from './InstanceActions';
-export { CreateLinkComponent } from "./CreateLinkComponent";

@@ -30,8 +30,8 @@ export default {
         }
       }
       FluidFunc.start(param.pageName(), { action: 'getListData', ...paramCopy })
-        .then(({ data }) => {
-          resolve({ data });
+        .then((result) => {
+          resolve({ data: result.data() });
         })
         .catch(error => { reject(error); });
     } catch (error) {
